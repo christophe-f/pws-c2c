@@ -1,0 +1,21 @@
+---
+applications:
+- name: travel-service
+  memory: 1024M
+  path: travel-service/target/travel-service-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  no-route: true
+  services:
+  - eureka-service
+  env:
+    TRUST_CERTS: api.run.pivotal.io
+
+- name: travel-client
+  memory: 1024M
+  path: travel-client/target/travel-client-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  random-route: true
+  services:
+  - eureka-service
+  env:
+    TRUST_CERTS: api.run.pivotal.io

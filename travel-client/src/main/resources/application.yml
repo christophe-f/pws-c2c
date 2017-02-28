@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: travel-client
+
+  cloud:
+    services:
+      registrationMethod: direct
+
+server:
+  port: 0
+
+producer:
+  ribbon:
+    ServerListRefreshInterval: 5000
+ribbon:
+  IsSecure: false
+
+security:
+  basic:
+    enabled: false

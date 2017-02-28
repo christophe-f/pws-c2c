@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: travel-service
+
+  cloud:
+    services:
+      registrationMethod: direct
+
+server:
+  port: 0
+
+security:
+  basic:
+    enabled: false
