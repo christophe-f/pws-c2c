@@ -1,4 +1,4 @@
-#### Container 2 Container Networking on PWS CloudFoundry
+# Container 2 Container Networking on PWS CloudFoundry
 
 ## Requirements
 * Pivotal Web Services account 
