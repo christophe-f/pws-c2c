@@ -12,3 +12,9 @@ server:
 security:
   basic:
     enabled: false
+
+logging:
+  level:
+    ninja:
+      spring:
+        DestinationClient: DEBUG
