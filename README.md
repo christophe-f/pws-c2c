@@ -95,5 +95,8 @@ To be able to register to the `Service Registery` service on PWS, you need a usi
       basic:
         enabled: false
 
+## More Details on my blog
+If you want to learn more, check out [my blog](https://medium.com/@christophef/container-networking-with-cloudfoundry-pws-pcf-part1-8840d7f9a985)
+
 ## References
 Thanks to this [Pivotal blog post](https://content.pivotal.io/blog/building-spring-microservices-with-cloud-foundrys-new-container-networking-stack) that helped me getting started. 
