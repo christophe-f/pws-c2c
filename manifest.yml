@@ -17,5 +17,6 @@ applications:
   random-route: true
   services:
   - eureka-service
+  - hystrix-dashboard
   env:
     TRUST_CERTS: api.run.pivotal.io

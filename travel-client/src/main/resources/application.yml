@@ -6,6 +6,10 @@ spring:
     services:
       registrationMethod: direct
 
+feign:
+  hystrix:
+    enabled: true
+
 server:
   port: 0
 
