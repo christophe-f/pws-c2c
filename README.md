@@ -10,10 +10,10 @@
 
 ## Run the example locally
 
-### Service Registry
-Start an Eureka instance with Spring Cloud CLI
+### Service Registry & Circuit Breaker Dashboard
+Start both an Eureka & Hystrix Dashboard instances with Spring Cloud CLI
  
-    spring cloud eureka
+    spring cloud eureka hystrixdashboard
     
 ### Compile and run the example
 
@@ -42,6 +42,9 @@ Click on the `travel-client` and open the `/destinations` endpoint, you will rec
 ### Service Registry
 On PWS, go to the marketplace and create a `Service Registry` service.
 
+### Circuit Breaker
+On PWS, go to the marketplace and create a `Circuit Breaker` service.
+
 ### Build and Deploy
 
     $ mvn clean package
@@ -63,11 +66,19 @@ Try to query the travel-client destinations endpoints. The route is set to gener
 
 ### New dependency
 
-You have to add this new dependency into your pom.xml file:
+You have to add this two new dependencies into your pom.xml file:
 
+    <!-- Replacement for spring-cloud-starter-eureka -->
     <dependency>
         <groupId>io.pivotal.spring.cloud</groupId>
         <artifactId>spring-cloud-services-starter-service-registry</artifactId>
+        <version>1.4.1.RELEASE</version>
+    </dependency>
+
+    <!-- Replacement for spring-cloud-starter-hystrix -->
+    <dependency>
+        <groupId>io.pivotal.spring.cloud</groupId>
+        <artifactId>spring-cloud-services-starter-circuit-breaker</artifactId>
         <version>1.4.1.RELEASE</version>
     </dependency>
 
@@ -80,6 +91,12 @@ To register to SCS Eureka, you have to register with the direct method:
         services:
           registrationMethod: direct
 
+By default Hystrix will not be enabled when using Feign. You can declare a Bean for HystrixFeign.builder() or simply turn it on via the following property: 
+
+    feign:
+       hystrix: 
+        enabled: true 
+          
 ### Set the `TRUST_CERTS` environment variable
 
 To be able to register to the `Service Registery` service on PWS, you need a using a self-signed SSL certificate. To do so, you have to set a `TRUST_CERTS` environment variable per application. You can use the one in my `manifest.yml` deployment file or the following command line:
