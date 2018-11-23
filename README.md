@@ -5,7 +5,6 @@
 * Feature c2c enabled on PWS
 * Feature SCS (Spring Cloud Services) enabled on PWS
 * CloudFoundry CLI
-* Network Access CF CLI plugin installed
 * SpringBoot CLI + Spring Cloud CLI
 
 ## Run the example locally
@@ -54,7 +53,7 @@ On PWS, go to the marketplace and create a `Circuit Breaker` service.
 
 Once the 2 applications are deployed and running, you cannot access the `travel-service` from the `travel-client`. You must allow the connection with the following command:
 
-    $ cf allow-access travel-client travel-service --protocol tcp --port 8080
+    $ cf add-network-policy travel-client --destination-app travel-service --protocol tcp --port 8080
     
 ### Test it
 
